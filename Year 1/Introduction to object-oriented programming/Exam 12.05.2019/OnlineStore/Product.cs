@@ -52,13 +52,8 @@ namespace OnlineStore
                 if (value < 0.00)
                 { throw new ArgumentException("Price should be positive!"); }
 
-
-                if (isOnPromotion && price <= 50)
-                { price = 0.8 * value; }
-                else if (isOnPromotion && price > 50)
-                { price = 0.7 * value; }
-                else
-                { price = value; }
+                if (isOnPromotion) price = 0.8 * value;
+                else price = value;
             }
         }
 
