@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5 CircularQueue", "5 CircularQueue\5 CircularQueue.csproj", "{0946A053-802D-41BA-82AE-B52D895944A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6 StaticStack", "6 StaticStack\6 StaticStack.csproj", "{A56F5192-0DE1-442A-ABE1-82690CFFB4D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0946A053-802D-41BA-82AE-B52D895944A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0946A053-802D-41BA-82AE-B52D895944A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0946A053-802D-41BA-82AE-B52D895944A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0946A053-802D-41BA-82AE-B52D895944A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A56F5192-0DE1-442A-ABE1-82690CFFB4D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56F5192-0DE1-442A-ABE1-82690CFFB4D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56F5192-0DE1-442A-ABE1-82690CFFB4D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56F5192-0DE1-442A-ABE1-82690CFFB4D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1C0A5A2-4BB7-4280-BA8C-6FF2E1571122}
+	EndGlobalSection
+EndGlobal
