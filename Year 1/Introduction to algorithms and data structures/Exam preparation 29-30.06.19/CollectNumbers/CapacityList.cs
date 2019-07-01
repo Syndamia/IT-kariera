@@ -41,7 +41,6 @@ namespace CollectNumbers {
                 for(int i = ++startIndex; i < items.Length; i++) { //++startIndex първо увеличава startIndex и после дава стойността
                     items[i] = default;
                 }
-
                 nextIndex = startIndex;
             }
 

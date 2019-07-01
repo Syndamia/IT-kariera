@@ -68,7 +68,6 @@ namespace Restaurant {
                             else currP.Next = currP.Next.Next;
                             break;
                         }
-
                         currP = currP.Next;
                     }
                 }
@@ -79,23 +78,16 @@ namespace Restaurant {
         }
 
         public string RemoveProductByName(string name) {
-            var currP = head;
-
-            for(int i = 0; i < Count; i++) {
+            for(var currP = head; currP != null ; currP = currP.Next) {
                 if(currP.Name == name) return RemoveProductByIndex(i);
-                currP = currP.Next;
             }
 
             return null;
         }
 
         public bool CheckProductIsInStock(string name) {
-            var currP = head;
-
-            while(currP != null) {
+            for (var currP = head; currP != null; currP = currP.Next) {
                 if(currP.Name == name) return true;
-
-                currP = currP.Next;
             }
 
             return false;
@@ -111,12 +103,6 @@ namespace Restaurant {
             }
 
             return info;
-        }
-
-        private string DealWithNext(Product currP) {
-            
-
-            return currP.Name;
         }
     }
 }
