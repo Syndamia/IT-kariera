@@ -1,0 +1,25 @@
+Lesson number - File number (the number in front of the file name)
+
+01 - 01.1
+02 - 01.2
+
+03 - 02.1
+04 - 02.2
+05 - 02.3
+06 - 02.4
+07 - 02.5 and 02.6
+08 - 02.7 and 02.8
+
+09 - 03.1
+10 - 03.2
+11 - 03.3
+12 - 03.4 (no exercises, only presentation)
+
+13 - 04.1
+14 - 04.2
+15 - 04.3
+
+16 - 05.1
+17 - 06.1
+18 - 06.2 (only exercises, no presentation)
+19 - 06.3 (only exercises, no presentation)
