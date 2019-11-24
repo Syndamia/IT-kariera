@@ -129,13 +129,16 @@ VALUES  (DEFAULT, 'Action film', NULL),
 CREATE TABLE movies(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(45) NOT NULL,
-    director_id INT REFERENCES directors.id,
+    director_id INT,
     copyright_year YEAR,
     length TIME NOT NULL,
-    genre_id INT REFERENCES genres.id,
-    category_id INT REFERENCES categories.id,
+    genre_id INT,
+    category_id INT,
     rating INT,
-    notes VARCHAR(45)
+    notes VARCHAR(45),
+    CONSTRAINT fk_director_id FOREIGN KEY (director_id) REFERENCES directors(id),
+    CONSTRAINT fk_genre_id FOREIGN KEY (genre_id) REFERENCES genres(id),
+    CONSTRAINT fk_category_id FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 INSERT INTO movies
 VALUES  (DEFAULT, 'Joker (2019)', 1, '2019', '02:02:00', 4, 4, 8, NULL),
