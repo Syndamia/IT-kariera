@@ -41,8 +41,8 @@ namespace Mundus.Views.Windows {
         public void SetDefaults() {
             rbSurvival.Active = true;
             rbEasy.Active = true;
-            rbMedium.Active = true;
-            rbMMedium.Active = true;
+            rbSmall.Active = true;
+            SetMapSize();
 
             rbMSmall.Sensitive = false;
             rbMMedium.Sensitive = false;
