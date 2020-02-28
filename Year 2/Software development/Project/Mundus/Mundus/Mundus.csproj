@@ -82,6 +82,7 @@
     <Folder Include="Views\" />
     <Folder Include="Controllers\" />
     <Folder Include="Views\Windows\" />
+    <Folder Include="Views\Icons\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -23,6 +23,8 @@ namespace Mundus.Views.Windows
 			this.Name = "Mundus.Views.Windows.SettingsWindow";
 			this.Title = global::Mono.Unix.Catalog.GetString("Settings");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.Resizable = false;
+			this.AllowGrow = false;
 			// Container child Mundus.Views.Windows.SettingsWindow.Gtk.Container+ContainerChild
 			this.tbUI = new global::Gtk.Table(((uint)(3)), ((uint)(5)), false);
 			this.tbUI.Name = "tbUI";

@@ -71,6 +71,8 @@ namespace Mundus.Views.Windows
 			this.Name = "Mundus.Views.Windows.NewGameWindow";
 			this.Title = global::Mono.Unix.Catalog.GetString("Create a New Game");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+			this.Resizable = false;
+			this.AllowGrow = false;
 			// Container child Mundus.Views.Windows.NewGameWindow.Gtk.Container+ContainerChild
 			this.tbUI = new global::Gtk.Table(((uint)(6)), ((uint)(6)), false);
 			this.tbUI.Name = "tbUI";
