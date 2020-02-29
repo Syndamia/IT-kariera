@@ -1,6 +1,7 @@
 ﻿using System;
 using Gtk;
 using Mundus.Models;
+using Mundus.Controllers.Map;
 
 namespace Mundus.Views.Windows {
     public partial class NewGameWindow : Gtk.Window {
@@ -9,17 +10,13 @@ namespace Mundus.Views.Windows {
         }
 
         private void OnDeleteEvent(object sender, DeleteEventArgs a) {
-            Application.Quit();
+            this.OnBtnBackClicked(this, null);
             a.RetVal = true;
         }
 
         private void OnBtnBackClicked(object sender, EventArgs e) {
             this.Hide();
-            WindowInstances.wMain.Show();
-        }
-        private void OnBtnBackActivated(object sender, EventArgs e) {
-            //Pressing "enter" or "space" will also click the button
-            this.OnBtnBackClicked(this, null);
+            WindowInstances.WMain.Show();
         }
 
         //You can choose your Map size only in creative, it is predetermined by screen & inventory size in survival.
@@ -84,18 +81,17 @@ namespace Mundus.Views.Windows {
 
             this.Hide();
             if (rbSmall.Active) {
-                WindowInstances.wSGame.Show();
+                LandSuperLayerGenerator.Generate( 25 );
+                WindowInstances.WSGame.PrintGameArea();
+                WindowInstances.WSGame.SetDefaults();
+                WindowInstances.WSGame.Show();
             }
             else if (rbMedium.Active) {
-                WindowInstances.wMGame.Show();
+                WindowInstances.WMGame.Show();
             }
             else if (rbLarge.Active) {
-                WindowInstances.wLGame.Show();
+                WindowInstances.WLGame.Show();
             }
-        }
-        protected void OnBtnGenerateActivated(object sender, EventArgs e) {
-            //Pressing "enter" or "space" will also click the button
-            this.OnBtnGenerateClicked(this, null);
         }
     }
 }

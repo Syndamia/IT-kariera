@@ -8,8 +8,9 @@ namespace Mundus {
             Application.Init();
             //All windows that are used by user (instances) are saved and created in WindowInstances.cs
             WindowInstances.CreateInstances();
+            DialogInstances.CreateInstances();
 
-            WindowInstances.wMain.Show();
+            WindowInstances.WMain.Show();
             Application.Run();
         }
     }

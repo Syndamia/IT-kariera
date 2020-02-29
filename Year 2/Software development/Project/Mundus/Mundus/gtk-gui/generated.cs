@@ -11,6 +11,15 @@ namespace Stetic
 			if ((Stetic.Gui.initialized == false))
 			{
 				Stetic.Gui.initialized = true;
+				global::Gtk.IconFactory w1 = new global::Gtk.IconFactory();
+				global::Gtk.IconSet w2 = new global::Gtk.IconSet();
+				global::Gtk.IconSource w3 = new global::Gtk.IconSource();
+				w3.Pixbuf = global::Gdk.Pixbuf.LoadFromResource("Mundus.Views.Icons.Land.Ground.grass.png");
+				w3.SizeWildcarded = false;
+				w3.Size = global::Gtk.IconSize.Dnd;
+				w2.AddSource(w3);
+				w1.Add("grass", w2);
+				w1.AddDefault();
 			}
 		}
 	}

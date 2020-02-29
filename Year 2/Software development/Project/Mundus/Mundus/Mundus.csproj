@@ -52,6 +52,9 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Icons\Land\Ground\grass.jpg" />
+    <EmbeddedResource Include="Views\Icons\Land\Ground\rock.jpg" />
+    <EmbeddedResource Include="Views\Icons\Land\Ground\grass.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -76,13 +79,30 @@
     <Compile Include="Views\Windows\MainWindow.cs" />
     <Compile Include="gtk-gui\Mundus.Views.Windows.MainWindow.cs" />
     <Compile Include="Models\WindowInstances.cs" />
+    <Compile Include="Views\Dialogs\ExitDialog.cs" />
+    <Compile Include="gtk-gui\Mundus.Views.Dialogs.ExitDialog.cs" />
+    <Compile Include="Models\DialogInstances.cs" />
+    <Compile Include="Views\Windows\Interfaces\IGameWindow.cs" />
+    <Compile Include="Models\SuperLayers\Land.cs" />
+    <Compile Include="Models\SuperLayers\SuperLayer.cs" />
+    <Compile Include="Models\Tiles\GroundTile.cs" />
+    <Compile Include="Models\Tiles\ItemTile.cs" />
+    <Compile Include="Models\Tiles\ITile.cs" />
+    <Compile Include="Controllers\Map\LandSuperLayerGenerator.cs" />
+    <Compile Include="Controllers\Map\ISuperLayerGenerator.cs" />
+    <Compile Include="Controllers\PrintSmallGameWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Views\" />
     <Folder Include="Controllers\" />
     <Folder Include="Views\Windows\" />
+    <Folder Include="Views\Dialogs\" />
+    <Folder Include="Views\Windows\Interfaces\" />
+    <Folder Include="Models\SuperLayers\" />
+    <Folder Include="Models\Tiles\" />
     <Folder Include="Views\Icons\" />
+    <Folder Include="Controllers\Map\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

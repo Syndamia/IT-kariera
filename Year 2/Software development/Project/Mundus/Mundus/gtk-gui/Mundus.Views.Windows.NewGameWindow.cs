@@ -10,23 +10,17 @@ namespace Mundus.Views.Windows
 
 		private global::Gtk.Button btnGenerate;
 
-		private global::Gtk.HSeparator hs1;
-
-		private global::Gtk.HSeparator hs2;
-
-		private global::Gtk.HSeparator hs3;
-
-		private global::Gtk.HSeparator hs4;
-
-		private global::Gtk.HSeparator hs5;
-
-		private global::Gtk.HSeparator hs6;
+		private global::Gtk.HSeparator hSeparator;
 
 		private global::Gtk.Label lblBlank1;
 
 		private global::Gtk.Label lblBlank2;
 
 		private global::Gtk.Label lblBlank3;
+
+		private global::Gtk.Label lblBlank4;
+
+		private global::Gtk.Label lblBlank5;
 
 		private global::Gtk.Label lblDifficulty;
 
@@ -74,7 +68,7 @@ namespace Mundus.Views.Windows
 			this.Resizable = false;
 			this.AllowGrow = false;
 			// Container child Mundus.Views.Windows.NewGameWindow.Gtk.Container+ContainerChild
-			this.tbUI = new global::Gtk.Table(((uint)(6)), ((uint)(6)), false);
+			this.tbUI = new global::Gtk.Table(((uint)(6)), ((uint)(8)), false);
 			this.tbUI.Name = "tbUI";
 			this.tbUI.RowSpacing = ((uint)(3));
 			this.tbUI.ColumnSpacing = ((uint)(3));
@@ -89,6 +83,8 @@ namespace Mundus.Views.Windows
 			this.btnBack.Label = global::Mono.Unix.Catalog.GetString("Back");
 			this.tbUI.Add(this.btnBack);
 			global::Gtk.Table.TableChild w1 = ((global::Gtk.Table.TableChild)(this.tbUI[this.btnBack]));
+			w1.LeftAttach = ((uint)(1));
+			w1.RightAttach = ((uint)(2));
 			w1.XOptions = ((global::Gtk.AttachOptions)(4));
 			w1.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
@@ -102,106 +98,82 @@ namespace Mundus.Views.Windows
 			this.btnGenerate.Label = global::Mono.Unix.Catalog.GetString("Generate");
 			this.tbUI.Add(this.btnGenerate);
 			global::Gtk.Table.TableChild w2 = ((global::Gtk.Table.TableChild)(this.tbUI[this.btnGenerate]));
-			w2.LeftAttach = ((uint)(5));
-			w2.RightAttach = ((uint)(6));
+			w2.LeftAttach = ((uint)(6));
+			w2.RightAttach = ((uint)(7));
 			w2.XOptions = ((global::Gtk.AttachOptions)(4));
 			w2.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
-			this.hs1 = new global::Gtk.HSeparator();
-			this.hs1.HeightRequest = 5;
-			this.hs1.Name = "hs1";
-			this.tbUI.Add(this.hs1);
-			global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.tbUI[this.hs1]));
+			this.hSeparator = new global::Gtk.HSeparator();
+			this.hSeparator.HeightRequest = 5;
+			this.hSeparator.Name = "hSeparator";
+			this.tbUI.Add(this.hSeparator);
+			global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.tbUI[this.hSeparator]));
 			w3.TopAttach = ((uint)(1));
 			w3.BottomAttach = ((uint)(2));
+			w3.LeftAttach = ((uint)(1));
+			w3.RightAttach = ((uint)(7));
 			w3.XOptions = ((global::Gtk.AttachOptions)(4));
 			w3.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child tbUI.Gtk.Table+TableChild
-			this.hs2 = new global::Gtk.HSeparator();
-			this.hs2.Name = "hs2";
-			this.tbUI.Add(this.hs2);
-			global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.tbUI[this.hs2]));
-			w4.TopAttach = ((uint)(1));
-			w4.BottomAttach = ((uint)(2));
-			w4.LeftAttach = ((uint)(1));
-			w4.RightAttach = ((uint)(2));
-			w4.XOptions = ((global::Gtk.AttachOptions)(4));
-			w4.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child tbUI.Gtk.Table+TableChild
-			this.hs3 = new global::Gtk.HSeparator();
-			this.hs3.Name = "hs3";
-			this.tbUI.Add(this.hs3);
-			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.tbUI[this.hs3]));
-			w5.TopAttach = ((uint)(1));
-			w5.BottomAttach = ((uint)(2));
-			w5.LeftAttach = ((uint)(2));
-			w5.RightAttach = ((uint)(3));
-			w5.XOptions = ((global::Gtk.AttachOptions)(4));
-			w5.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child tbUI.Gtk.Table+TableChild
-			this.hs4 = new global::Gtk.HSeparator();
-			this.hs4.Name = "hs4";
-			this.tbUI.Add(this.hs4);
-			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.tbUI[this.hs4]));
-			w6.TopAttach = ((uint)(1));
-			w6.BottomAttach = ((uint)(2));
-			w6.LeftAttach = ((uint)(3));
-			w6.RightAttach = ((uint)(4));
-			w6.XOptions = ((global::Gtk.AttachOptions)(4));
-			w6.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child tbUI.Gtk.Table+TableChild
-			this.hs5 = new global::Gtk.HSeparator();
-			this.hs5.Name = "hs5";
-			this.tbUI.Add(this.hs5);
-			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.tbUI[this.hs5]));
-			w7.TopAttach = ((uint)(1));
-			w7.BottomAttach = ((uint)(2));
-			w7.LeftAttach = ((uint)(4));
-			w7.RightAttach = ((uint)(5));
-			w7.XOptions = ((global::Gtk.AttachOptions)(4));
-			w7.YOptions = ((global::Gtk.AttachOptions)(4));
-			// Container child tbUI.Gtk.Table+TableChild
-			this.hs6 = new global::Gtk.HSeparator();
-			this.hs6.Name = "hs6";
-			this.tbUI.Add(this.hs6);
-			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.tbUI[this.hs6]));
-			w8.TopAttach = ((uint)(1));
-			w8.BottomAttach = ((uint)(2));
-			w8.LeftAttach = ((uint)(5));
-			w8.RightAttach = ((uint)(6));
-			w8.XOptions = ((global::Gtk.AttachOptions)(4));
-			w8.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.lblBlank1 = new global::Gtk.Label();
 			this.lblBlank1.WidthRequest = 90;
 			this.lblBlank1.HeightRequest = 50;
 			this.lblBlank1.Name = "lblBlank1";
+			this.lblBlank1.LabelProp = "";
 			this.tbUI.Add(this.lblBlank1);
-			global::Gtk.Table.TableChild w9 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblBlank1]));
-			w9.LeftAttach = ((uint)(1));
-			w9.RightAttach = ((uint)(2));
-			w9.XOptions = ((global::Gtk.AttachOptions)(4));
-			w9.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblBlank1]));
+			w4.LeftAttach = ((uint)(2));
+			w4.RightAttach = ((uint)(3));
+			w4.XOptions = ((global::Gtk.AttachOptions)(4));
+			w4.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.lblBlank2 = new global::Gtk.Label();
 			this.lblBlank2.WidthRequest = 50;
 			this.lblBlank2.Name = "lblBlank2";
+			this.lblBlank2.LabelProp = "";
 			this.tbUI.Add(this.lblBlank2);
-			global::Gtk.Table.TableChild w10 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblBlank2]));
-			w10.LeftAttach = ((uint)(3));
-			w10.RightAttach = ((uint)(4));
-			w10.XOptions = ((global::Gtk.AttachOptions)(4));
-			w10.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblBlank2]));
+			w5.LeftAttach = ((uint)(4));
+			w5.RightAttach = ((uint)(5));
+			w5.XOptions = ((global::Gtk.AttachOptions)(4));
+			w5.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.lblBlank3 = new global::Gtk.Label();
 			this.lblBlank3.WidthRequest = 50;
 			this.lblBlank3.Name = "lblBlank3";
+			this.lblBlank3.LabelProp = "";
 			this.tbUI.Add(this.lblBlank3);
-			global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblBlank3]));
-			w11.LeftAttach = ((uint)(4));
-			w11.RightAttach = ((uint)(5));
-			w11.XOptions = ((global::Gtk.AttachOptions)(4));
-			w11.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblBlank3]));
+			w6.LeftAttach = ((uint)(5));
+			w6.RightAttach = ((uint)(6));
+			w6.XOptions = ((global::Gtk.AttachOptions)(4));
+			w6.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child tbUI.Gtk.Table+TableChild
+			this.lblBlank4 = new global::Gtk.Label();
+			this.lblBlank4.WidthRequest = 5;
+			this.lblBlank4.HeightRequest = 50;
+			this.lblBlank4.Name = "lblBlank4";
+			this.lblBlank4.LabelProp = "";
+			this.tbUI.Add(this.lblBlank4);
+			global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblBlank4]));
+			w7.TopAttach = ((uint)(4));
+			w7.BottomAttach = ((uint)(5));
+			w7.LeftAttach = ((uint)(7));
+			w7.RightAttach = ((uint)(8));
+			w7.XOptions = ((global::Gtk.AttachOptions)(4));
+			w7.YOptions = ((global::Gtk.AttachOptions)(4));
+			// Container child tbUI.Gtk.Table+TableChild
+			this.lblBlank5 = new global::Gtk.Label();
+			this.lblBlank5.WidthRequest = 5;
+			this.lblBlank5.HeightRequest = 50;
+			this.lblBlank5.Name = "lblBlank5";
+			this.lblBlank5.LabelProp = "";
+			this.tbUI.Add(this.lblBlank5);
+			global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblBlank5]));
+			w8.TopAttach = ((uint)(4));
+			w8.BottomAttach = ((uint)(5));
+			w8.XOptions = ((global::Gtk.AttachOptions)(4));
+			w8.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.lblDifficulty = new global::Gtk.Label();
 			this.lblDifficulty.WidthRequest = 90;
@@ -209,11 +181,13 @@ namespace Mundus.Views.Windows
 			this.lblDifficulty.Name = "lblDifficulty";
 			this.lblDifficulty.LabelProp = global::Mono.Unix.Catalog.GetString("Difficulty");
 			this.tbUI.Add(this.lblDifficulty);
-			global::Gtk.Table.TableChild w12 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblDifficulty]));
-			w12.TopAttach = ((uint)(3));
-			w12.BottomAttach = ((uint)(4));
-			w12.XOptions = ((global::Gtk.AttachOptions)(4));
-			w12.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w9 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblDifficulty]));
+			w9.TopAttach = ((uint)(3));
+			w9.BottomAttach = ((uint)(4));
+			w9.LeftAttach = ((uint)(1));
+			w9.RightAttach = ((uint)(2));
+			w9.XOptions = ((global::Gtk.AttachOptions)(4));
+			w9.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.lblGameMode = new global::Gtk.Label();
 			this.lblGameMode.WidthRequest = 90;
@@ -221,11 +195,13 @@ namespace Mundus.Views.Windows
 			this.lblGameMode.Name = "lblGameMode";
 			this.lblGameMode.LabelProp = global::Mono.Unix.Catalog.GetString("Game Mode:");
 			this.tbUI.Add(this.lblGameMode);
-			global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblGameMode]));
-			w13.TopAttach = ((uint)(2));
-			w13.BottomAttach = ((uint)(3));
-			w13.XOptions = ((global::Gtk.AttachOptions)(4));
-			w13.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w10 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblGameMode]));
+			w10.TopAttach = ((uint)(2));
+			w10.BottomAttach = ((uint)(3));
+			w10.LeftAttach = ((uint)(1));
+			w10.RightAttach = ((uint)(2));
+			w10.XOptions = ((global::Gtk.AttachOptions)(4));
+			w10.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.lblMapSize = new global::Gtk.Label();
 			this.lblMapSize.WidthRequest = 90;
@@ -233,26 +209,29 @@ namespace Mundus.Views.Windows
 			this.lblMapSize.Name = "lblMapSize";
 			this.lblMapSize.LabelProp = global::Mono.Unix.Catalog.GetString("Map size");
 			this.tbUI.Add(this.lblMapSize);
-			global::Gtk.Table.TableChild w14 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblMapSize]));
-			w14.TopAttach = ((uint)(5));
-			w14.BottomAttach = ((uint)(6));
-			w14.XOptions = ((global::Gtk.AttachOptions)(4));
-			w14.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblMapSize]));
+			w11.TopAttach = ((uint)(5));
+			w11.BottomAttach = ((uint)(6));
+			w11.LeftAttach = ((uint)(1));
+			w11.RightAttach = ((uint)(2));
+			w11.XOptions = ((global::Gtk.AttachOptions)(4));
+			w11.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.lblScreenInvSize = new global::Gtk.Label();
 			this.lblScreenInvSize.WidthRequest = 90;
 			this.lblScreenInvSize.HeightRequest = 50;
 			this.lblScreenInvSize.Name = "lblScreenInvSize";
 			this.lblScreenInvSize.LabelProp = global::Mono.Unix.Catalog.GetString("Screen & Inventory size");
-			this.lblScreenInvSize.UseMarkup = true;
 			this.lblScreenInvSize.Wrap = true;
 			this.lblScreenInvSize.Justify = ((global::Gtk.Justification)(2));
 			this.tbUI.Add(this.lblScreenInvSize);
-			global::Gtk.Table.TableChild w15 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblScreenInvSize]));
-			w15.TopAttach = ((uint)(4));
-			w15.BottomAttach = ((uint)(5));
-			w15.XOptions = ((global::Gtk.AttachOptions)(4));
-			w15.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w12 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblScreenInvSize]));
+			w12.TopAttach = ((uint)(4));
+			w12.BottomAttach = ((uint)(5));
+			w12.LeftAttach = ((uint)(1));
+			w12.RightAttach = ((uint)(2));
+			w12.XOptions = ((global::Gtk.AttachOptions)(4));
+			w12.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.lblTitle = new global::Gtk.Label();
 			this.lblTitle.WidthRequest = 180;
@@ -262,11 +241,11 @@ namespace Mundus.Views.Windows
 			this.lblTitle.Wrap = true;
 			this.lblTitle.Justify = ((global::Gtk.Justification)(2));
 			this.tbUI.Add(this.lblTitle);
-			global::Gtk.Table.TableChild w16 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblTitle]));
-			w16.LeftAttach = ((uint)(2));
-			w16.RightAttach = ((uint)(4));
-			w16.XOptions = ((global::Gtk.AttachOptions)(0));
-			w16.YOptions = ((global::Gtk.AttachOptions)(0));
+			global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.tbUI[this.lblTitle]));
+			w13.LeftAttach = ((uint)(3));
+			w13.RightAttach = ((uint)(5));
+			w13.XOptions = ((global::Gtk.AttachOptions)(0));
+			w13.YOptions = ((global::Gtk.AttachOptions)(0));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbCreative = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Creative"));
 			this.rbCreative.WidthRequest = 90;
@@ -276,13 +255,13 @@ namespace Mundus.Views.Windows
 			this.rbCreative.UseUnderline = true;
 			this.rbCreative.Group = new global::GLib.SList(global::System.IntPtr.Zero);
 			this.tbUI.Add(this.rbCreative);
-			global::Gtk.Table.TableChild w17 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbCreative]));
-			w17.TopAttach = ((uint)(2));
-			w17.BottomAttach = ((uint)(3));
-			w17.LeftAttach = ((uint)(2));
-			w17.RightAttach = ((uint)(3));
-			w17.XOptions = ((global::Gtk.AttachOptions)(4));
-			w17.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w14 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbCreative]));
+			w14.TopAttach = ((uint)(2));
+			w14.BottomAttach = ((uint)(3));
+			w14.LeftAttach = ((uint)(3));
+			w14.RightAttach = ((uint)(4));
+			w14.XOptions = ((global::Gtk.AttachOptions)(4));
+			w14.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbEasy = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Easy"));
 			this.rbEasy.WidthRequest = 90;
@@ -292,13 +271,13 @@ namespace Mundus.Views.Windows
 			this.rbEasy.UseUnderline = true;
 			this.rbEasy.Group = new global::GLib.SList(global::System.IntPtr.Zero);
 			this.tbUI.Add(this.rbEasy);
-			global::Gtk.Table.TableChild w18 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbEasy]));
-			w18.TopAttach = ((uint)(3));
-			w18.BottomAttach = ((uint)(4));
-			w18.LeftAttach = ((uint)(2));
-			w18.RightAttach = ((uint)(3));
-			w18.XOptions = ((global::Gtk.AttachOptions)(4));
-			w18.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w15 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbEasy]));
+			w15.TopAttach = ((uint)(3));
+			w15.BottomAttach = ((uint)(4));
+			w15.LeftAttach = ((uint)(3));
+			w15.RightAttach = ((uint)(4));
+			w15.XOptions = ((global::Gtk.AttachOptions)(4));
+			w15.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbHard = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Hard"));
 			this.rbHard.WidthRequest = 90;
@@ -308,13 +287,13 @@ namespace Mundus.Views.Windows
 			this.rbHard.UseUnderline = true;
 			this.rbHard.Group = this.rbEasy.Group;
 			this.tbUI.Add(this.rbHard);
-			global::Gtk.Table.TableChild w19 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbHard]));
-			w19.TopAttach = ((uint)(3));
-			w19.BottomAttach = ((uint)(4));
-			w19.LeftAttach = ((uint)(4));
-			w19.RightAttach = ((uint)(5));
-			w19.XOptions = ((global::Gtk.AttachOptions)(4));
-			w19.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w16 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbHard]));
+			w16.TopAttach = ((uint)(3));
+			w16.BottomAttach = ((uint)(4));
+			w16.LeftAttach = ((uint)(5));
+			w16.RightAttach = ((uint)(6));
+			w16.XOptions = ((global::Gtk.AttachOptions)(4));
+			w16.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbInsane = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Insane"));
 			this.rbInsane.WidthRequest = 90;
@@ -324,13 +303,13 @@ namespace Mundus.Views.Windows
 			this.rbInsane.UseUnderline = true;
 			this.rbInsane.Group = this.rbEasy.Group;
 			this.tbUI.Add(this.rbInsane);
-			global::Gtk.Table.TableChild w20 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbInsane]));
-			w20.TopAttach = ((uint)(3));
-			w20.BottomAttach = ((uint)(4));
-			w20.LeftAttach = ((uint)(5));
-			w20.RightAttach = ((uint)(6));
-			w20.XOptions = ((global::Gtk.AttachOptions)(4));
-			w20.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w17 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbInsane]));
+			w17.TopAttach = ((uint)(3));
+			w17.BottomAttach = ((uint)(4));
+			w17.LeftAttach = ((uint)(6));
+			w17.RightAttach = ((uint)(7));
+			w17.XOptions = ((global::Gtk.AttachOptions)(4));
+			w17.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbLarge = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Large"));
 			this.rbLarge.WidthRequest = 90;
@@ -340,13 +319,13 @@ namespace Mundus.Views.Windows
 			this.rbLarge.UseUnderline = true;
 			this.rbLarge.Group = new global::GLib.SList(global::System.IntPtr.Zero);
 			this.tbUI.Add(this.rbLarge);
-			global::Gtk.Table.TableChild w21 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbLarge]));
-			w21.TopAttach = ((uint)(4));
-			w21.BottomAttach = ((uint)(5));
-			w21.LeftAttach = ((uint)(3));
-			w21.RightAttach = ((uint)(4));
-			w21.XOptions = ((global::Gtk.AttachOptions)(4));
-			w21.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w18 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbLarge]));
+			w18.TopAttach = ((uint)(4));
+			w18.BottomAttach = ((uint)(5));
+			w18.LeftAttach = ((uint)(4));
+			w18.RightAttach = ((uint)(5));
+			w18.XOptions = ((global::Gtk.AttachOptions)(4));
+			w18.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbMedium = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Medium"));
 			this.rbMedium.WidthRequest = 90;
@@ -356,13 +335,13 @@ namespace Mundus.Views.Windows
 			this.rbMedium.UseUnderline = true;
 			this.rbMedium.Group = this.rbLarge.Group;
 			this.tbUI.Add(this.rbMedium);
-			global::Gtk.Table.TableChild w22 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbMedium]));
-			w22.TopAttach = ((uint)(4));
-			w22.BottomAttach = ((uint)(5));
-			w22.LeftAttach = ((uint)(2));
-			w22.RightAttach = ((uint)(3));
-			w22.XOptions = ((global::Gtk.AttachOptions)(4));
-			w22.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w19 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbMedium]));
+			w19.TopAttach = ((uint)(4));
+			w19.BottomAttach = ((uint)(5));
+			w19.LeftAttach = ((uint)(3));
+			w19.RightAttach = ((uint)(4));
+			w19.XOptions = ((global::Gtk.AttachOptions)(4));
+			w19.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbMLarge = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Large"));
 			this.rbMLarge.CanFocus = true;
@@ -371,13 +350,13 @@ namespace Mundus.Views.Windows
 			this.rbMLarge.UseUnderline = true;
 			this.rbMLarge.Group = new global::GLib.SList(global::System.IntPtr.Zero);
 			this.tbUI.Add(this.rbMLarge);
-			global::Gtk.Table.TableChild w23 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbMLarge]));
-			w23.TopAttach = ((uint)(5));
-			w23.BottomAttach = ((uint)(6));
-			w23.LeftAttach = ((uint)(3));
-			w23.RightAttach = ((uint)(4));
-			w23.XOptions = ((global::Gtk.AttachOptions)(4));
-			w23.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w20 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbMLarge]));
+			w20.TopAttach = ((uint)(5));
+			w20.BottomAttach = ((uint)(6));
+			w20.LeftAttach = ((uint)(4));
+			w20.RightAttach = ((uint)(5));
+			w20.XOptions = ((global::Gtk.AttachOptions)(4));
+			w20.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbMMedium = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Medium"));
 			this.rbMMedium.WidthRequest = 90;
@@ -387,13 +366,13 @@ namespace Mundus.Views.Windows
 			this.rbMMedium.UseUnderline = true;
 			this.rbMMedium.Group = this.rbMLarge.Group;
 			this.tbUI.Add(this.rbMMedium);
-			global::Gtk.Table.TableChild w24 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbMMedium]));
-			w24.TopAttach = ((uint)(5));
-			w24.BottomAttach = ((uint)(6));
-			w24.LeftAttach = ((uint)(2));
-			w24.RightAttach = ((uint)(3));
-			w24.XOptions = ((global::Gtk.AttachOptions)(4));
-			w24.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w21 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbMMedium]));
+			w21.TopAttach = ((uint)(5));
+			w21.BottomAttach = ((uint)(6));
+			w21.LeftAttach = ((uint)(3));
+			w21.RightAttach = ((uint)(4));
+			w21.XOptions = ((global::Gtk.AttachOptions)(4));
+			w21.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbMSmall = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Small"));
 			this.rbMSmall.WidthRequest = 90;
@@ -403,13 +382,13 @@ namespace Mundus.Views.Windows
 			this.rbMSmall.UseUnderline = true;
 			this.rbMSmall.Group = this.rbMLarge.Group;
 			this.tbUI.Add(this.rbMSmall);
-			global::Gtk.Table.TableChild w25 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbMSmall]));
-			w25.TopAttach = ((uint)(5));
-			w25.BottomAttach = ((uint)(6));
-			w25.LeftAttach = ((uint)(1));
-			w25.RightAttach = ((uint)(2));
-			w25.XOptions = ((global::Gtk.AttachOptions)(4));
-			w25.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w22 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbMSmall]));
+			w22.TopAttach = ((uint)(5));
+			w22.BottomAttach = ((uint)(6));
+			w22.LeftAttach = ((uint)(2));
+			w22.RightAttach = ((uint)(3));
+			w22.XOptions = ((global::Gtk.AttachOptions)(4));
+			w22.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbNormal = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Normal"));
 			this.rbNormal.WidthRequest = 90;
@@ -419,13 +398,13 @@ namespace Mundus.Views.Windows
 			this.rbNormal.UseUnderline = true;
 			this.rbNormal.Group = this.rbEasy.Group;
 			this.tbUI.Add(this.rbNormal);
-			global::Gtk.Table.TableChild w26 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbNormal]));
-			w26.TopAttach = ((uint)(3));
-			w26.BottomAttach = ((uint)(4));
-			w26.LeftAttach = ((uint)(3));
-			w26.RightAttach = ((uint)(4));
-			w26.XOptions = ((global::Gtk.AttachOptions)(4));
-			w26.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w23 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbNormal]));
+			w23.TopAttach = ((uint)(3));
+			w23.BottomAttach = ((uint)(4));
+			w23.LeftAttach = ((uint)(4));
+			w23.RightAttach = ((uint)(5));
+			w23.XOptions = ((global::Gtk.AttachOptions)(4));
+			w23.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbPeaceful = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Peaceful"));
 			this.rbPeaceful.WidthRequest = 90;
@@ -435,13 +414,13 @@ namespace Mundus.Views.Windows
 			this.rbPeaceful.UseUnderline = true;
 			this.rbPeaceful.Group = this.rbEasy.Group;
 			this.tbUI.Add(this.rbPeaceful);
-			global::Gtk.Table.TableChild w27 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbPeaceful]));
-			w27.TopAttach = ((uint)(3));
-			w27.BottomAttach = ((uint)(4));
-			w27.LeftAttach = ((uint)(1));
-			w27.RightAttach = ((uint)(2));
-			w27.XOptions = ((global::Gtk.AttachOptions)(4));
-			w27.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w24 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbPeaceful]));
+			w24.TopAttach = ((uint)(3));
+			w24.BottomAttach = ((uint)(4));
+			w24.LeftAttach = ((uint)(2));
+			w24.RightAttach = ((uint)(3));
+			w24.XOptions = ((global::Gtk.AttachOptions)(4));
+			w24.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbSmall = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Small"));
 			this.rbSmall.WidthRequest = 90;
@@ -451,13 +430,13 @@ namespace Mundus.Views.Windows
 			this.rbSmall.UseUnderline = true;
 			this.rbSmall.Group = this.rbLarge.Group;
 			this.tbUI.Add(this.rbSmall);
-			global::Gtk.Table.TableChild w28 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbSmall]));
-			w28.TopAttach = ((uint)(4));
-			w28.BottomAttach = ((uint)(5));
-			w28.LeftAttach = ((uint)(1));
-			w28.RightAttach = ((uint)(2));
-			w28.XOptions = ((global::Gtk.AttachOptions)(4));
-			w28.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w25 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbSmall]));
+			w25.TopAttach = ((uint)(4));
+			w25.BottomAttach = ((uint)(5));
+			w25.LeftAttach = ((uint)(2));
+			w25.RightAttach = ((uint)(3));
+			w25.XOptions = ((global::Gtk.AttachOptions)(4));
+			w25.YOptions = ((global::Gtk.AttachOptions)(4));
 			// Container child tbUI.Gtk.Table+TableChild
 			this.rbSurvival = new global::Gtk.RadioButton(global::Mono.Unix.Catalog.GetString("Survival"));
 			this.rbSurvival.WidthRequest = 90;
@@ -467,20 +446,20 @@ namespace Mundus.Views.Windows
 			this.rbSurvival.UseUnderline = true;
 			this.rbSurvival.Group = this.rbCreative.Group;
 			this.tbUI.Add(this.rbSurvival);
-			global::Gtk.Table.TableChild w29 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbSurvival]));
-			w29.TopAttach = ((uint)(2));
-			w29.BottomAttach = ((uint)(3));
-			w29.LeftAttach = ((uint)(1));
-			w29.RightAttach = ((uint)(2));
-			w29.XOptions = ((global::Gtk.AttachOptions)(4));
-			w29.YOptions = ((global::Gtk.AttachOptions)(4));
+			global::Gtk.Table.TableChild w26 = ((global::Gtk.Table.TableChild)(this.tbUI[this.rbSurvival]));
+			w26.TopAttach = ((uint)(2));
+			w26.BottomAttach = ((uint)(3));
+			w26.LeftAttach = ((uint)(2));
+			w26.RightAttach = ((uint)(3));
+			w26.XOptions = ((global::Gtk.AttachOptions)(4));
+			w26.YOptions = ((global::Gtk.AttachOptions)(4));
 			this.Add(this.tbUI);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();
 			}
-			this.DefaultWidth = 555;
-			this.DefaultHeight = 270;
+			this.DefaultWidth = 581;
+			this.DefaultHeight = 275;
 			this.Show();
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 			this.rbSmall.Toggled += new global::System.EventHandler(this.OnRbSmallToggled);
@@ -488,9 +467,7 @@ namespace Mundus.Views.Windows
 			this.rbLarge.Toggled += new global::System.EventHandler(this.OnRbLargeToggled);
 			this.rbCreative.Toggled += new global::System.EventHandler(this.OnRbCreativeToggled);
 			this.btnGenerate.Clicked += new global::System.EventHandler(this.OnBtnGenerateClicked);
-			this.btnGenerate.Activated += new global::System.EventHandler(this.OnBtnGenerateActivated);
 			this.btnBack.Clicked += new global::System.EventHandler(this.OnBtnBackClicked);
-			this.btnBack.Activated += new global::System.EventHandler(this.OnBtnBackActivated);
 		}
 	}
 }

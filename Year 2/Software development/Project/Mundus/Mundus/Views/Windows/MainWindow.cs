@@ -10,26 +10,20 @@ namespace Mundus.Views.Windows {
 
         private void OnDeleteEvent(object sender, DeleteEventArgs a) {
             Application.Quit();
-            a.RetVal = true;
         }
 
         private void OnBtnNewGameClicked(object sender, EventArgs e) {
             this.Hide();
-            WindowInstances.wNewGame.SetDefaults();
-            WindowInstances.wNewGame.Show();
-        }
-        private void OnBtnNewGameActivated(object sender, EventArgs e) {
-            //Pressing "enter" or "space" will also click the button
-            this.OnBtnNewGameClicked(this, null);
+            WindowInstances.WNewGame.SetDefaults();
+            WindowInstances.WNewGame.Show();
         }
 
         private void OnBtnSettingsClicked(object sender, EventArgs e) {
             this.Hide();
-            WindowInstances.wSettings.Show();
+            WindowInstances.WSettings.Show(this);
         }
-        private void OnBtnSettingsActivated(object sender, EventArgs e) {
-            //Pressing "enter" or "space" will also click the button
-            this.OnBtnSettingsClicked(this, null);
+
+        protected void OnBtnTutorialClicked(object sender, EventArgs e) {
         }
     }
 }

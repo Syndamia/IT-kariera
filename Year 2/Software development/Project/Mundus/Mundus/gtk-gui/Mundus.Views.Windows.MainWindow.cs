@@ -8,6 +8,8 @@ namespace Mundus.Views.Windows
 
 		private global::Gtk.Label lblTitle;
 
+		private global::Gtk.HSeparator hSeparator;
+
 		private global::Gtk.Button btnLoadGame;
 
 		private global::Gtk.Button btnNewGame;
@@ -39,6 +41,15 @@ namespace Mundus.Views.Windows
 			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vboxUI[this.lblTitle]));
 			w1.Position = 0;
 			// Container child vboxUI.Gtk.Box+BoxChild
+			this.hSeparator = new global::Gtk.HSeparator();
+			this.hSeparator.HeightRequest = 5;
+			this.hSeparator.Name = "hSeparator";
+			this.vboxUI.Add(this.hSeparator);
+			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vboxUI[this.hSeparator]));
+			w2.Position = 1;
+			w2.Expand = false;
+			w2.Fill = false;
+			// Container child vboxUI.Gtk.Box+BoxChild
 			this.btnLoadGame = new global::Gtk.Button();
 			this.btnLoadGame.WidthRequest = 300;
 			this.btnLoadGame.HeightRequest = 90;
@@ -49,8 +60,8 @@ namespace Mundus.Views.Windows
 			this.btnLoadGame.BorderWidth = ((uint)(7));
 			this.btnLoadGame.Label = global::Mono.Unix.Catalog.GetString("Load Game");
 			this.vboxUI.Add(this.btnLoadGame);
-			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vboxUI[this.btnLoadGame]));
-			w2.Position = 1;
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vboxUI[this.btnLoadGame]));
+			w3.Position = 2;
 			// Container child vboxUI.Gtk.Box+BoxChild
 			this.btnNewGame = new global::Gtk.Button();
 			this.btnNewGame.WidthRequest = 300;
@@ -61,8 +72,8 @@ namespace Mundus.Views.Windows
 			this.btnNewGame.BorderWidth = ((uint)(7));
 			this.btnNewGame.Label = global::Mono.Unix.Catalog.GetString("New Game");
 			this.vboxUI.Add(this.btnNewGame);
-			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.vboxUI[this.btnNewGame]));
-			w3.Position = 2;
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vboxUI[this.btnNewGame]));
+			w4.Position = 3;
 			// Container child vboxUI.Gtk.Box+BoxChild
 			this.btnTutorial = new global::Gtk.Button();
 			this.btnTutorial.WidthRequest = 300;
@@ -73,10 +84,10 @@ namespace Mundus.Views.Windows
 			this.btnTutorial.BorderWidth = ((uint)(7));
 			this.btnTutorial.Label = global::Mono.Unix.Catalog.GetString("Tutorial");
 			this.vboxUI.Add(this.btnTutorial);
-			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vboxUI[this.btnTutorial]));
-			w4.Position = 3;
-			w4.Expand = false;
-			w4.Fill = false;
+			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vboxUI[this.btnTutorial]));
+			w5.Position = 4;
+			w5.Expand = false;
+			w5.Fill = false;
 			// Container child vboxUI.Gtk.Box+BoxChild
 			this.btnSettings = new global::Gtk.Button();
 			this.btnSettings.WidthRequest = 300;
@@ -87,23 +98,22 @@ namespace Mundus.Views.Windows
 			this.btnSettings.BorderWidth = ((uint)(7));
 			this.btnSettings.Label = global::Mono.Unix.Catalog.GetString("Settings");
 			this.vboxUI.Add(this.btnSettings);
-			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vboxUI[this.btnSettings]));
-			w5.Position = 4;
-			w5.Expand = false;
-			w5.Fill = false;
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vboxUI[this.btnSettings]));
+			w6.Position = 5;
+			w6.Expand = false;
+			w6.Fill = false;
 			this.Add(this.vboxUI);
 			if ((this.Child != null))
 			{
 				this.Child.ShowAll();
 			}
 			this.DefaultWidth = 300;
-			this.DefaultHeight = 460;
+			this.DefaultHeight = 465;
 			this.Show();
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 			this.btnNewGame.Clicked += new global::System.EventHandler(this.OnBtnNewGameClicked);
-			this.btnNewGame.Activated += new global::System.EventHandler(this.OnBtnNewGameActivated);
+			this.btnTutorial.Clicked += new global::System.EventHandler(this.OnBtnTutorialClicked);
 			this.btnSettings.Clicked += new global::System.EventHandler(this.OnBtnSettingsClicked);
-			this.btnSettings.Activated += new global::System.EventHandler(this.OnBtnSettingsActivated);
 		}
 	}
 }
