@@ -12,7 +12,7 @@ namespace Mundus.Views.Windows {
         }
 
         private void OnDeleteEvent(object sender, DeleteEventArgs a) {
-            //Return to the sender window (and dont destroy the instance)
+            //Return to the sender window (and dont destroy the settings window instance)
             this.OnBtnBackClicked(this, null);
             a.RetVal = true;
         }

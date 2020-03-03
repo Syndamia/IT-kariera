@@ -9,8 +9,17 @@
   <icon-factory>
     <icon-set id="grass">
       <source>
-        <property name="Image">resource:Mundus.Views.Icons.Land.Ground.grass.png</property>
-        <property name="Size">Dnd</property>
+        <property name="Image">resource:Mundus.Icons.Land.Ground.grass.jpg</property>
+      </source>
+    </icon-set>
+    <icon-set id="stick">
+      <source>
+        <property name="Image">resource:Mundus.Icons.Land.Items.stick.jpg</property>
+      </source>
+    </icon-set>
+    <icon-set id="blank">
+      <source>
+        <property name="Image">resource:Mundus.Icons.blank.jpg</property>
       </source>
     </icon-set>
   </icon-factory>
@@ -375,7 +384,6 @@
             <property name="WidthRequest">90</property>
             <property name="CanFocus">True</property>
             <property name="Label" translatable="yes">Creative</property>
-            <property name="Active">True</property>
             <property name="DrawIndicator">True</property>
             <property name="HasLabel">True</property>
             <property name="UseUnderline">True</property>
@@ -404,7 +412,6 @@
             <property name="WidthRequest">90</property>
             <property name="CanFocus">True</property>
             <property name="Label" translatable="yes">Easy</property>
-            <property name="Active">True</property>
             <property name="DrawIndicator">True</property>
             <property name="HasLabel">True</property>
             <property name="UseUnderline">True</property>
@@ -486,7 +493,6 @@
             <property name="WidthRequest">90</property>
             <property name="CanFocus">True</property>
             <property name="Label" translatable="yes">Large</property>
-            <property name="Active">True</property>
             <property name="DrawIndicator">True</property>
             <property name="HasLabel">True</property>
             <property name="UseUnderline">True</property>
@@ -542,7 +548,6 @@
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="Label" translatable="yes">Large</property>
-            <property name="Active">True</property>
             <property name="DrawIndicator">True</property>
             <property name="HasLabel">True</property>
             <property name="UseUnderline">True</property>
@@ -1655,6 +1660,7 @@
             <property name="Label" translatable="yes" />
             <property name="UseUnderline">True</property>
             <property name="Relief">Half</property>
+            <signal name="Clicked" handler="OnBtnH1Clicked" />
           </widget>
           <packing>
             <property name="TopAttach">10</property>
@@ -1736,7 +1742,6 @@
             <property name="Label" translatable="yes" />
             <property name="UseUnderline">True</property>
             <property name="Relief">Half</property>
-            <signal name="Clicked" handler="OnBtnH4Clicked" />
           </widget>
           <packing>
             <property name="TopAttach">10</property>
@@ -3582,7 +3587,6 @@
             <property name="MemberName" />
             <property name="WidthRequest">50</property>
             <property name="HeightRequest">50</property>
-            <property name="Pixbuf">stock:gtk-dialog-authentication Menu</property>
           </widget>
           <packing>
             <property name="TopAttach">2</property>
@@ -3603,7 +3607,6 @@
         <child>
           <widget class="Gtk.Image" id="imgG10">
             <property name="MemberName" />
-            <property name="Pixbuf">stock:gtk-dialog-error Menu</property>
           </widget>
           <packing>
             <property name="TopAttach">3</property>

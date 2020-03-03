@@ -1,12 +1,15 @@
 ﻿using System;
 using Gtk;
 using Mundus.Models;
-using Mundus.Views.Windows.Interfaces;
 using Mundus.Models.SuperLayers;
-using System.Linq;
+using Mundus.Views.Windows.Interfaces;
 
 namespace Mundus.Views.Windows {
     public partial class SmallGameWindow : Gtk.Window, IGameWindow {
+        /*Constant for the height and width of the game screen, map screens and inventory screen
+         *and the width of stats, hotbar, accessories, gear & items on the ground menus*/
+        public const int SIZE = 5;
+
         public SmallGameWindow() : base( Gtk.WindowType.Toplevel ) {
             this.Build();
         }
@@ -33,8 +36,8 @@ namespace Mundus.Views.Windows {
         }
 
         public void SetDefaults() {
-            this.SetMapMenuVisible(false);
-            this.SetInvMenuVisible(false);
+            this.SetMapMenuVisibility(false);
+            this.SetInvMenuVisibility(false);
             WindowInstances.WPause.GameWindow = this;
         }
 
@@ -48,13 +51,14 @@ namespace Mundus.Views.Windows {
             if (this.InvMenuIsVisible()) this.OnBtnInvClicked(this, null);
 
             if (this.MapMenuIsVisible()) {
-                this.SetMapMenuVisible(false);
+                this.SetMapMenuVisibility(false);
             } else {
-                this.SetMapMenuVisible(true);
+                this.PrintMap();
+                this.SetMapMenuVisibility(true);
             }
         }
 
-        private void SetMapMenuVisible(bool isVisible) {
+        private void SetMapMenuVisibility(bool isVisible) {
             lblGroundLayer.Visible = isVisible;
             imgG1.Visible = isVisible;
             imgG2.Visible = isVisible;
@@ -129,13 +133,14 @@ namespace Mundus.Views.Windows {
             if (this.MapMenuIsVisible()) this.OnBtnMapClicked(this, null);
 
             if (btnI1.Visible) {
-                this.SetInvMenuVisible(false);
+                this.SetInvMenuVisibility(false);
             } else {
-                this.SetInvMenuVisible(true);
+                this.PrintInventory();
+                this.SetInvMenuVisibility(true);
             }
         }
 
-        private void SetInvMenuVisible(bool isVisible) {
+        private void SetInvMenuVisibility(bool isVisible) {
             btnI1.Visible = isVisible;
             btnI2.Visible = isVisible;
             btnI3.Visible = isVisible;
@@ -204,36 +209,155 @@ namespace Mundus.Views.Windows {
             WindowInstances.WMusic.Show();
         }
 
-        public void PrintGameArea() {
-            btnP1.Image = new Image(Land.GetGroundLayerTile( 0 ).stock_id, IconSize.Dnd);
-            btnP2.Image = new Image( Land.GetGroundLayerTile( 1 ).stock_id, IconSize.Dnd );
-            btnP3.Image = new Image( Land.GetGroundLayerTile( 2 ).stock_id, IconSize.Dnd );
-            btnP4.Image = new Image( Land.GetGroundLayerTile( 3 ).stock_id, IconSize.Dnd );
-            btnP5.Image = new Image( Land.GetGroundLayerTile( 4 ).stock_id, IconSize.Dnd );
-            btnP6.Image = new Image( Land.GetGroundLayerTile( 5 ).stock_id, IconSize.Dnd );
-            btnP7.Image = new Image( Land.GetGroundLayerTile( 6 ).stock_id, IconSize.Dnd );
-            btnP8.Image = new Image( Land.GetGroundLayerTile( 7 ).stock_id, IconSize.Dnd );
-            btnP9.Image = new Image( Land.GetGroundLayerTile( 8 ).stock_id, IconSize.Dnd );
-            btnP10.Image = new Image( Land.GetGroundLayerTile( 9 ).stock_id, IconSize.Dnd );
-            btnP11.Image = new Image( Land.GetGroundLayerTile( 10 ).stock_id, IconSize.Dnd );
-            btnP12.Image = new Image( Land.GetGroundLayerTile( 11 ).stock_id, IconSize.Dnd );
-            btnP13.Image = new Image( Land.GetGroundLayerTile( 12 ).stock_id, IconSize.Dnd );
-            btnP14.Image = new Image( Land.GetGroundLayerTile( 13 ).stock_id, IconSize.Dnd );
-            btnP15.Image = new Image( Land.GetGroundLayerTile( 14 ).stock_id, IconSize.Dnd );
-            btnP16.Image = new Image( Land.GetGroundLayerTile( 15 ).stock_id, IconSize.Dnd );
-            btnP17.Image = new Image( Land.GetGroundLayerTile( 16 ).stock_id, IconSize.Dnd );
-            btnP18.Image = new Image( Land.GetGroundLayerTile( 17 ).stock_id, IconSize.Dnd );
-            btnP19.Image = new Image( Land.GetGroundLayerTile( 18 ).stock_id, IconSize.Dnd );
-            btnP20.Image = new Image( Land.GetGroundLayerTile( 19 ).stock_id, IconSize.Dnd );
-            btnP21.Image = new Image( Land.GetGroundLayerTile( 20 ).stock_id, IconSize.Dnd );
-            btnP22.Image = new Image( Land.GetGroundLayerTile( 21 ).stock_id, IconSize.Dnd );
-            btnP23.Image = new Image( Land.GetGroundLayerTile( 22 ).stock_id, IconSize.Dnd );
-            btnP24.Image = new Image( Land.GetGroundLayerTile( 23 ).stock_id, IconSize.Dnd );
-            btnP25.Image = new Image( Land.GetGroundLayerTile( 24 ).stock_id, IconSize.Dnd );
+        public void PrintScreen() {
+            //TODO: get the superlayer that the player is in
+            ISuperLayer superLayer = LayerInstances.Land;
+
+            for(int i = 0; i < 2; i++) {
+                for (int row = 0; row < SIZE; row++) {
+                    for (int col = 0; col < SIZE; col++) {
+                        //Set the image to be either the ground layer tile, "blank" icon, item layer tile, mob layer tile or don't set it to anything 
+                        //Note: first the ground and the blank icons are printed, then over them are printed the item tiles and over them are mob tiles
+                        Image img = new Image();
+                        if (i == 0) {
+                            if (superLayer.GetGroundLayerTile( row, col ) == null) {
+                                img = new Image( "blank", IconSize.Dnd );
+                            }
+                            else {
+                                img = new Image( superLayer.GetGroundLayerTile( row, col ).stock_id, IconSize.Dnd );
+                            }
+                        } else {
+                            if (superLayer.GetItemLayerTile( row, col ) == null) continue;
+                            img = new Image( superLayer.GetItemLayerTile( row, col ).stock_id, IconSize.Dnd );
+                        }
+
+                        switch (row * 5 + col + 1) {
+                            case 1: btnP1.Image = img; break;
+                            case 2: btnP2.Image = img; break;
+                            case 3: btnP3.Image = img; break;
+                            case 4: btnP4.Image = img; break;
+                            case 5: btnP5.Image = img; break;
+                            case 6: btnP6.Image = img; break;
+                            case 7: btnP7.Image = img; break;
+                            case 8: btnP8.Image = img; break;
+                            case 9: btnP9.Image = img; break;
+                            case 10: btnP10.Image = img; break;
+                            case 11: btnP11.Image = img; break;
+                            case 12: btnP12.Image = img; break;
+                            case 13: btnP13.Image = img; break;
+                            case 14: btnP14.Image = img; break;
+                            case 15: btnP15.Image = img; break;
+                            case 16: btnP16.Image = img; break;
+                            case 17: btnP17.Image = img; break;
+                            case 18: btnP18.Image = img; break;
+                            case 19: btnP19.Image = img; break;
+                            case 20: btnP20.Image = img; break;
+                            case 21: btnP21.Image = img; break;
+                            case 22: btnP22.Image = img; break;
+                            case 23: btnP23.Image = img; break;
+                            case 24: btnP24.Image = img; break;
+                            case 25: btnP25.Image = img; break;
+                        }
+                    }
+                }
+            }
         }
 
-        protected void OnBtnH4Clicked(object sender, EventArgs e) {
-            btnP17.Image = Land.GetGroundLayerTile( 17 ).Texture;
+        public void PrintMap() {
+            //TODO: get the superlayer that the player is in
+            ISuperLayer superLayer = LayerInstances.Land;
+
+            string sName;
+
+            //Prints the "Ground layer" in map menu
+            for (int row = 0; row < SIZE; row++) {
+                for (int col = 0; col < SIZE; col++) {
+                    //Print a tile if it exists, otherwise print the "blank" icon
+                    if (superLayer.GetGroundLayerTile( row, col ) == null) {
+                        sName = "blank";
+                    }
+                    else {
+                        sName = superLayer.GetGroundLayerTile( row, col ).stock_id;
+                    }
+
+                    switch (row * 5 + col + 1) {
+                        case 1: imgG1.SetFromStock(sName, IconSize.Dnd); break;
+                        case 2: imgG2.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 3: imgG3.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 4: imgG4.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 5: imgG5.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 6: imgG6.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 7: imgG7.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 8: imgG8.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 9: imgG9.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 10: imgG10.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 11: imgG11.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 12: imgG12.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 13: imgG13.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 14: imgG14.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 15: imgG15.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 16: imgG16.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 17: imgG17.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 18: imgG18.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 19: imgG19.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 20: imgG20.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 21: imgG21.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 22: imgG22.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 23: imgG23.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 24: imgG24.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 25: imgG25.SetFromStock( sName, IconSize.Dnd ); break;
+                    }
+                }
+            }
+
+            //Prints the "Item layer" in map menu
+            for (int row = 0; row < SIZE; row++) {
+                for (int col = 0; col < SIZE; col++) {
+                    //Print a tile if it exists, otherwise print the "blank" icon
+                    if (superLayer.GetItemLayerTile( row, col ) == null) {
+                        sName = "blank";
+                    }
+                    else {
+                        sName = superLayer.GetItemLayerTile( row, col ).stock_id;
+                    }
+
+                    switch (row * 5 + col + 1) {
+                        case 1: imgI1.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 2: imgI2.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 3: imgI3.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 4: imgI4.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 5: imgI5.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 6: imgI6.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 7: imgI7.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 8: imgI8.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 9: imgI9.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 10: imgI10.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 11: imgI11.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 12: imgI12.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 13: imgI13.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 14: imgI14.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 15: imgI15.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 16: imgI16.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 17: imgI17.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 18: imgI18.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 19: imgI19.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 20: imgI20.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 21: imgI21.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 22: imgI22.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 23: imgI23.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 24: imgI24.SetFromStock( sName, IconSize.Dnd ); break;
+                        case 25: imgI25.SetFromStock( sName, IconSize.Dnd ); break;
+                    }
+                }
+            }
+        }
+
+        public void PrintInventory() {
+
+        }
+
+        protected void OnBtnH1Clicked(object sender, EventArgs e) {
+            this.PrintMap();
         }
     }
 }

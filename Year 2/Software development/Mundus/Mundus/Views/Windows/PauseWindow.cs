@@ -28,7 +28,7 @@ namespace Mundus.Views.Windows {
 
         protected void OnBtnSaveClicked(object sender, EventArgs e) {
             //TODO: call saving code
-            this.OnDeleteEvent(null, null);
+            this.OnDeleteEvent(this, new DeleteEventArgs());
         }
 
         protected void OnBtnSaveExitClicked(object sender, EventArgs e) {

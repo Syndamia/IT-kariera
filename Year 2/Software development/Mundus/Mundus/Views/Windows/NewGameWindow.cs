@@ -2,6 +2,7 @@
 using Gtk;
 using Mundus.Models;
 using Mundus.Controllers.Map;
+using Mundus.Views.Windows.Interfaces;
 
 namespace Mundus.Views.Windows {
     public partial class NewGameWindow : Gtk.Window {
@@ -76,22 +77,54 @@ namespace Mundus.Views.Windows {
             }
         }
 
-        protected void OnBtnGenerateClicked(object sender, EventArgs e) {
+        private void OnBtnGenerateClicked(object sender, EventArgs e) {
             //TODO: add settings to a model
 
             this.Hide();
+            this.MapGenerate();
+            this.ScreenInventorySetup();
+        }
+
+        private void MapGenerate() {
+            int mapSize;
+
+            if (rbMSmall.Active) {
+                mapSize = MapSizes.SMALL;
+            }
+            else if (rbMMedium.Active) {
+                mapSize = MapSizes.MEDIUM;
+            }
+            else if (rbMLarge.Active) {
+                mapSize = MapSizes.LARGE;
+            }
+            else {
+                throw new ArgumentException("No map size was selected");
+            }
+
+            //Add the other layers
+            LandSuperLayerGenerator.GenerateAllLayers(mapSize);
+        }
+
+        //Does the inital steps that are required by all windows upon game generation
+        private void ScreenInventorySetup() {
+            IGameWindow gameWindow;
+
             if (rbSmall.Active) {
-                LandSuperLayerGenerator.Generate( 25 );
-                WindowInstances.WSGame.PrintGameArea();
-                WindowInstances.WSGame.SetDefaults();
-                WindowInstances.WSGame.Show();
+                gameWindow = WindowInstances.WSGame;
             }
             else if (rbMedium.Active) {
-                WindowInstances.WMGame.Show();
-            }
+                gameWindow = WindowInstances.WMGame;
+            } 
             else if (rbLarge.Active) {
-                WindowInstances.WLGame.Show();
+                gameWindow = WindowInstances.WLGame;
+            } 
+            else {
+                throw new ArgumentException("No screen & inventory size was selected");
             }
+
+            gameWindow.SetDefaults();
+            gameWindow.PrintScreen();
+            gameWindow.Show();
         }
     }
 }

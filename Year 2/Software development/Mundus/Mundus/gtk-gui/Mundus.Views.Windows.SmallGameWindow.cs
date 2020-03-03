@@ -1934,7 +1934,6 @@ namespace Mundus.Views.Windows
 			this.imgG1.WidthRequest = 50;
 			this.imgG1.HeightRequest = 50;
 			this.imgG1.Name = "imgG1";
-			this.imgG1.Pixbuf = global::Stetic.IconLoader.LoadIcon(this, "gtk-dialog-authentication", global::Gtk.IconSize.Menu);
 			this.tbUI.Add(this.imgG1);
 			global::Gtk.Table.TableChild w171 = ((global::Gtk.Table.TableChild)(this.tbUI[this.imgG1]));
 			w171.TopAttach = ((uint)(2));
@@ -1946,7 +1945,6 @@ namespace Mundus.Views.Windows
 			// Container child tbUI.Gtk.Table+TableChild
 			this.imgG10 = new global::Gtk.Image();
 			this.imgG10.Name = "imgG10";
-			this.imgG10.Pixbuf = global::Stetic.IconLoader.LoadIcon(this, "gtk-dialog-error", global::Gtk.IconSize.Menu);
 			this.tbUI.Add(this.imgG10);
 			global::Gtk.Table.TableChild w172 = ((global::Gtk.Table.TableChild)(this.tbUI[this.imgG10]));
 			w172.TopAttach = ((uint)(3));
@@ -2914,7 +2912,7 @@ namespace Mundus.Views.Windows
 			this.btnMusic.Clicked += new global::System.EventHandler(this.OnBtnMusicClicked);
 			this.btnMap.Clicked += new global::System.EventHandler(this.OnBtnMapClicked);
 			this.btnInv.Clicked += new global::System.EventHandler(this.OnBtnInvClicked);
-			this.btnH4.Clicked += new global::System.EventHandler(this.OnBtnH4Clicked);
+			this.btnH1.Clicked += new global::System.EventHandler(this.OnBtnH1Clicked);
 		}
 	}
 }

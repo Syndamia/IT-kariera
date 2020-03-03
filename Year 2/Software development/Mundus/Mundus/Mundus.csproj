@@ -52,9 +52,9 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Icons\Land\Ground\grass.jpg" />
-    <EmbeddedResource Include="Views\Icons\Land\Ground\rock.jpg" />
-    <EmbeddedResource Include="Views\Icons\Land\Ground\grass.png" />
+    <EmbeddedResource Include="Icons\Land\Ground\grass.jpg" />
+    <EmbeddedResource Include="Icons\Land\Items\stick.jpg" />
+    <EmbeddedResource Include="Icons\blank.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -84,13 +84,13 @@
     <Compile Include="Models\DialogInstances.cs" />
     <Compile Include="Views\Windows\Interfaces\IGameWindow.cs" />
     <Compile Include="Models\SuperLayers\Land.cs" />
-    <Compile Include="Models\SuperLayers\SuperLayer.cs" />
+    <Compile Include="Models\SuperLayers\ISuperLayer.cs" />
     <Compile Include="Models\Tiles\GroundTile.cs" />
     <Compile Include="Models\Tiles\ItemTile.cs" />
     <Compile Include="Models\Tiles\ITile.cs" />
     <Compile Include="Controllers\Map\LandSuperLayerGenerator.cs" />
-    <Compile Include="Controllers\Map\ISuperLayerGenerator.cs" />
-    <Compile Include="Controllers\PrintSmallGameWindow.cs" />
+    <Compile Include="Models\MapSizes.cs" />
+    <Compile Include="Models\LayerInstances.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -103,6 +103,7 @@
     <Folder Include="Models\Tiles\" />
     <Folder Include="Views\Icons\" />
     <Folder Include="Controllers\Map\" />
+    <Folder Include="Views\Icons\Land\Ground\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
