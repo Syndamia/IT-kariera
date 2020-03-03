@@ -9,17 +9,17 @@
   <icon-factory>
     <icon-set id="grass">
       <source>
-        <property name="Image">resource:Mundus.Icons.Land.Ground.grass.jpg</property>
-      </source>
-    </icon-set>
-    <icon-set id="stick">
-      <source>
-        <property name="Image">resource:Mundus.Icons.Land.Items.stick.jpg</property>
+        <property name="Image">resource:Mundus.Icons.Land.Ground.grass.png</property>
       </source>
     </icon-set>
     <icon-set id="blank">
       <source>
         <property name="Image">resource:Mundus.Icons.blank.jpg</property>
+      </source>
+    </icon-set>
+    <icon-set id="boulder">
+      <source>
+        <property name="Image">resource:Mundus.Icons.Land.Ground.boulder.png</property>
       </source>
     </icon-set>
   </icon-factory>

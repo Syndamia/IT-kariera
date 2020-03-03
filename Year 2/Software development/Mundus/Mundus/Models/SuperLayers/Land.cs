@@ -6,7 +6,8 @@ namespace Mundus.Models.SuperLayers {
     public class Land : ISuperLayer {
 
         private static Dictionary<string, ItemTile> itemTilesTypes = new Dictionary<string, ItemTile> {
-            {"Stick", new ItemTile("stick")}
+            {"Stick", new ItemTile("stick")},
+            {"Boulder", new ItemTile("boulder")}
         };
         private static Dictionary<string, GroundTile> groundTilesTypes = new Dictionary<string, GroundTile> {
             {"Grass", new GroundTile("grass")}

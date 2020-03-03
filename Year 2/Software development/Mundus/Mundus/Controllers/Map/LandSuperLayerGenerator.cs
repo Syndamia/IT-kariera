@@ -5,12 +5,15 @@ using Mundus.Models.SuperLayers;
 
 namespace Mundus.Controllers.Map {
     public static class LandSuperLayerGenerator {
+        private static Random rnd;
+
         public static void GenerateAllLayers(int size) {
             LayerInstances.Land.SetGroundLayer(GenerateGroundLayer(size));
             LayerInstances.Land.SetItemLayer(GenerateItemLayer(size));
         }
 
         private static GroundTile[,] GenerateGroundLayer(int size) {
+            rnd = new Random();
             GroundTile[,] tiles = new GroundTile[size, size];
 
             for(int col = 0; col < size; col++) {
@@ -18,7 +21,6 @@ namespace Mundus.Controllers.Map {
                     tiles[col, row] = LayerInstances.Land.GetGroundTileType("Grass");
                 }
             }
-            tiles[4, 2] = null;
             return tiles;
         }
 
@@ -26,11 +28,11 @@ namespace Mundus.Controllers.Map {
             ItemTile[,] tiles = new ItemTile[size, size];
             for (int col = 0; col < size; col++) {
                 for (int row = 0; row < size; row++) {
-                    tiles[col, row] = null;
+                    if (rnd.Next( 0, 5 ) == 1) {
+                        tiles[col, row] = LayerInstances.Land.GetItemTileType( "Boulder" );
+                    }
                 }
             }
-            tiles[1, 3] = LayerInstances.Land.GetItemTileType("Stick");
-            tiles[3, 2] = LayerInstances.Land.GetItemTileType("Stick");
             return tiles;
         }
     }

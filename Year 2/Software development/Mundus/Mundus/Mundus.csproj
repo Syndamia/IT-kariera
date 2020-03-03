@@ -52,9 +52,10 @@
     <EmbeddedResource Include="gtk-gui\gui.stetic">
       <LogicalName>gui.stetic</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="Icons\Land\Ground\grass.jpg" />
     <EmbeddedResource Include="Icons\Land\Items\stick.jpg" />
     <EmbeddedResource Include="Icons\blank.jpg" />
+    <EmbeddedResource Include="Icons\Land\Ground\grass.png" />
+    <EmbeddedResource Include="Icons\Land\Ground\boulder.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gtk-gui\generated.cs" />
@@ -104,6 +105,7 @@
     <Folder Include="Views\Icons\" />
     <Folder Include="Controllers\Map\" />
     <Folder Include="Views\Icons\Land\Ground\" />
+    <Folder Include="Icons\Land\Ground\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
