@@ -1,4 +1,4 @@
-import Data.List
+import Data.List (sort)
 
 validParameters :: Int -> Int -> [a] -> Bool
 validParameters start count arr = start >= 0 && start < length arr && count >= 0 && start + count <= length arr 
@@ -28,36 +28,28 @@ readUntilWord arr = do
     let comms = words line
 
     if null comms then readUntilWord arr 
-    else 
-        case head comms of
-            "reverse" -> do
-                let start = read (comms!!2) :: Int
-                let count = read (comms!!4) :: Int
+    else
+        if head comms == "reverse" || head comms == "sort" then do
+            let start = read (comms!!2) :: Int
+            let count = read (comms!!4) :: Int 
 
-                if validParameters start count arr 
-                then readUntilWord (reverseArr start count arr)
-                else doError arr
-            "sort" -> do
-                let start = read (comms!!2) :: Int
-                let count = read (comms!!4) :: Int
-                
-                if validParameters start count arr 
-                then readUntilWord (sortArr start count arr)
-                else doError arr
-            "rollLeft" -> do
-                let count = read (comms!!1) :: Int
+            if validParameters start count arr then 
+                if head comms == "reverse" then
+                    readUntilWord (reverseArr start count arr)
+                else readUntilWord (sortArr start count arr)
+            else doError arr
 
-                if count >= 0
-                then readUntilWord (rollLeft (mod count (length arr)) arr)
-                else doError arr
-            "rollRight" -> do
-                let count = read (comms!!1) :: Int
-                
-                if count >= 0
-                then readUntilWord (rollRight (mod count (length arr)) arr)
-                else doError arr
-            "end" -> return arr
-            otherwise -> readUntilWord arr
+        else if head comms == "rollLeft" || head comms == "rollRight" then do
+            let count = read (comms!!1) :: Int
+
+            if count >= 0 then 
+                if head comms == "rollLeft" then
+                    readUntilWord (rollLeft (mod count (length arr)) arr)
+                else readUntilWord (rollRight (mod count (length arr)) arr) 
+            else doError arr
+
+        else if head comms == "end" then return arr
+        else readUntilWord arr
 
 formatResult :: [[Char]] -> String -- don't ask me why arr is [[Char]]
 formatResult arr = (foldl (\str a -> str ++ a ++ ", ") "[" (init arr)) ++ last arr ++ "]"
