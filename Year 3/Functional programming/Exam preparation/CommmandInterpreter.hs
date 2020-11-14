@@ -48,8 +48,8 @@ readUntilWord arr = do
                 else readUntilWord (rollRight (mod count (length arr)) arr) 
             else doError arr
 
-        else if head comms == "end" then return arr
-        else readUntilWord arr
+    else if head comms == "end" then return arr
+    else readUntilWord arr
 
 formatResult :: [[Char]] -> String -- don't ask me why arr is [[Char]]
 formatResult arr = (foldl (\str a -> str ++ a ++ ", ") "[" (init arr)) ++ last arr ++ "]"
