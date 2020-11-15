@@ -1,4 +1,5 @@
 -- Third exercise from Lists-Advanced-Exercises.docx
+-- License from https://github.com/Syndamia/algorithms applies (rather than the IT-kariera repo license)
 
 {- Split -}
 
