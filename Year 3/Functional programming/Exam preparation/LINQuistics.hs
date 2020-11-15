@@ -19,18 +19,13 @@ sanitizeArr arr = if null arr then []
                   else if elem (last arr) (init arr) then sanitizeArr (init arr)
                   else (sanitizeArr (init arr)) ++ [last arr]
 
-insertInfo :: [[String]] -> Int -> [String] -> [[String]]
-insertInfo mat index info = take index mat ++ [[head (mat!!index)] ++ sanitizeArr ((tail (mat!!index)) ++ info)] ++ drop (index + 1) mat
-
 insertIncl :: [[String]] -> [String] -> [[String]]
-insertIncl mat info = if indexOfHead mat (head info) 0 >= 0 then
-                          insertInfo mat (indexOfHead mat (head info) 0) (tail info)
-                      else mat ++ [[head info] ++ sanitizeArr (tail info)]
+insertIncl mat info = if indexOfHead mat (head info) 0 < 0 
+                      then mat ++ [[head info] ++ sanitizeArr (tail info)]
+                      else insertInfo mat (indexOfHead mat (head info) 0) (tail info) 
+    where insertInfo mat index info = take index mat ++ [[head (mat!!index)] ++ sanitizeArr ((tail (mat!!index)) ++ info)] ++ drop (index + 1) mat 
 
 {- Sort -}
-
-swapTwo :: [a] -> Int -> [a]
-swapTwo arr i = take i arr ++ [arr!!(i + 1)] ++ [arr!!i] ++ drop (i + 2) arr
 
 desc :: (Ord a) => [a] -> (a -> a -> Bool) -> (a -> a -> Bool) ->  Int -> Int -> [a]
 desc arr cond scond end curr = if end == 0 then arr
@@ -38,6 +33,7 @@ desc arr cond scond end curr = if end == 0 then arr
                                else if cond (arr!!curr) (arr!!(curr + 1)) || scond (arr!!curr) (arr!!(curr+1)) 
                                    then desc (swapTwo arr curr) cond scond end (curr + 1)
                                else desc arr cond scond end (curr + 1)
+    where swapTwo arr i = take i arr ++ [arr!!(i + 1)] ++ [arr!!i] ++ drop (i + 2) arr 
 
 orderByDesc :: (Ord a) => [a] -> (a -> a -> Bool) -> (a -> a -> Bool) -> [a]
 orderByDesc arr cond scond = desc arr cond scond (length arr - 1) 0
@@ -65,9 +61,9 @@ elemsThatContain mat item = if null mat then []
                             else elemsThatContain (tail mat) item
 
 getCollWithMostMethods :: [[String]] -> [String]
-getCollWithMostMethods mat = mat!!(indexOfMostMethods)
-    where indexOfMostMethods = foldl (\acc x -> if lengthsArr!!x > lengthsArr!!acc then x else acc) 0 [1..(length mat - 1)] 
-           where lengthsArr = map (\x -> length x) mat 
+getCollWithMostMethods mat = mat!!(indexOfMostMethods lengthsArr)
+    where lengthsArr = map (\x -> length x) mat 
+          indexOfMostMethods arr = foldl (\acc x -> if arr!!x > arr!!acc then x else acc) 0 [1..(length mat - 1)]   
 
 {- Printing -}
 
@@ -82,11 +78,10 @@ printCollection collection haveMethods = do
     if null collection then return ()
     else do
         putStrLn (head (head collection))
-        if haveMethods then do
-            let ordMethods = orderByDesc (tail (head collection)) compByLen alwaysFalse 
-            printMethods ordMethods
-            printCollection (tail collection) haveMethods
-        else printCollection (tail collection) haveMethods
+        if haveMethods 
+            then printMethods (orderByDesc (tail (head collection)) compByLen alwaysFalse) 
+        else return ()
+        printCollection (tail collection) haveMethods
 
 {- Main -}
 
@@ -97,37 +92,33 @@ indexOfHead mat key start = if null mat then (-1)
 
 isNumber :: String -> Bool
 isNumber str = if null str then False
-               else if length str == 1 then 
-                    head str >= '0' && head str <= '9'
-               else head str >= '0' && head str <= '9' && isNumber (tail str)
+               else (head str >= '0' && head str <= '9') && ((length str > 1) == isNumber (tail str))
 
 readUntilWord :: [[String]] -> IO ()
 readUntilWord mat = do
     line <- getLine
     let coll = splitInput line
 
-    if length coll == 1 then 
-        if head coll == "exit" then do
-            final <- getLine
-            let comm = words final
-            let collecs = elemsThatContain mat (head comm)
-            let ordered = orderByDesc collecs compByLen alwaysFalse
+    if head coll == "exit" then do
+        final <- getLine
+        let comm = words final
+        let collecs = elemsThatContain mat (head comm)
+        let ordered = orderByDesc collecs compByLen alwaysFalse
             
-            printCollection ordered (comm!!1 == "all")
-        
-        else if isNumber (head coll) then do
+        printCollection ordered (comm!!1 == "all")
+
+    else if length coll == 1 then do
+        if isNumber (head coll) then do
             let mostMethodsOrd = orderByDesc (tail (getCollWithMostMethods mat)) compByShort alwaysFalse
             let n = read (head coll) :: Int
-
             printMethods (take n mostMethodsOrd)
-            readUntilWord mat
 
         else if indexOfHead mat (head coll) 0 >= 0 then do
             let methods = orderByDesc (tail (mat!!(indexOfHead mat (head coll) 0))) compByLen compByUniqCnt 
             printMethods methods
-            readUntilWord mat
 
-        else readUntilWord mat    
+        else return()
+        readUntilWord mat
 
     else readUntilWord (insertIncl mat coll)
 
