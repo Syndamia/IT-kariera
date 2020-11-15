@@ -50,6 +50,9 @@ compByLen x y = length x < length y
 compByShort :: (Ord a) => [a] -> [a] -> Bool
 compByShort x y = length x > length y
 
+compByShortestName :: [String] -> [String] -> Bool 
+compByShortestName x y = length (last (orderByDesc (tail x) compByLen alwaysFalse)) < length (last (orderByDesc (tail y) compByLen alwaysFalse))
+
 alwaysFalse :: a -> a -> Bool
 alwaysFalse x y = False
 
@@ -103,7 +106,7 @@ readUntilWord mat = do
         final <- getLine
         let comm = words final
         let collecs = elemsThatContain mat (head comm)
-        let ordered = orderByDesc collecs compByLen alwaysFalse
+        let ordered = orderByDesc collecs compByLen compByShortestName
             
         printCollection ordered (comm!!1 == "all")
 
