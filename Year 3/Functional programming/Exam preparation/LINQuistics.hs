@@ -14,13 +14,18 @@ splitInput line = if null line then []
 
 {- Insert -}
 
+sanitizeArr :: Eq a => [a] -> [a]
+sanitizeArr arr = if null arr then []
+                  else if elem (last arr) (init arr) then sanitizeArr (init arr)
+                  else (sanitizeArr (init arr)) ++ [last arr]
+
 insertInfo :: [[String]] -> Int -> [String] -> [[String]]
-insertInfo mat index info = take index mat ++ [mat!!index ++ info] ++ drop (index + 1) mat
+insertInfo mat index info = take index mat ++ [[head (mat!!index)] ++ sanitizeArr ((tail (mat!!index)) ++ info)] ++ drop (index + 1) mat
 
 insertIncl :: [[String]] -> [String] -> [[String]]
 insertIncl mat info = if indexOfHead mat (head info) 0 >= 0 then
                           insertInfo mat (indexOfHead mat (head info) 0) (tail info)
-                      else mat ++ [info]
+                      else mat ++ [[head info] ++ sanitizeArr (tail info)]
 
 {- Sort -}
 
