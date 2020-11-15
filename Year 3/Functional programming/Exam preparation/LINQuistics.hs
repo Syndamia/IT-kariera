@@ -40,7 +40,7 @@ orderByDesc arr cond scond = desc arr cond scond (length arr - 1) 0
 {- Sort conditions -}
 
 compByUniqCnt :: String -> String -> Bool
-compByUniqCnt x y = length x == length y && uniqCnt x <= uniqCnt y  
+compByUniqCnt x y = length x == length y && uniqCnt x < uniqCnt y  
     where uniqCnt str = length (foldl (\acc x -> if elem x acc then acc else acc ++ [x]) [] str)
 
 compByLen :: (Ord a) => [a] -> [a] -> Bool
