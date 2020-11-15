@@ -12,11 +12,6 @@ splitInput :: String -> [String]
 splitInput line = if null line then []
                   else [take (head (splitAtSection line 0)) line] ++ splitInput (drop (sum (splitAtSection line 0)) line)
 
-indexOfHead :: [[String]] -> String -> Int -> Int
-indexOfHead mat key start = if null mat then (-1)
-                            else if head (head mat) == key then start
-                            else indexOfHead (tail mat) key (start + 1)
-
 {- Insert -}
 
 insertInfo :: [[String]] -> Int -> [String] -> [[String]]
@@ -57,7 +52,7 @@ compByShort x y = length x > length y
 alwaysFalse :: a -> a -> Bool
 alwaysFalse x y = False
 
-{- Fiters -}
+{- Filters -}
 
 elemsThatContain :: [[String]] -> String -> [[String]]
 elemsThatContain mat item = if null mat then []
@@ -89,6 +84,11 @@ printCollection collection haveMethods = do
         else printCollection (tail collection) haveMethods
 
 {- Main -}
+
+indexOfHead :: [[String]] -> String -> Int -> Int
+indexOfHead mat key start = if null mat then (-1)
+                            else if head (head mat) == key then start
+                            else indexOfHead (tail mat) key (start + 1)
 
 isNumber :: String -> Bool
 isNumber str = if null str then False
