@@ -125,6 +125,27 @@ namespace PandaWebApp.Controllers
             return this.View(model);
         }
 
+		[Authorize("Admin")]
+		public IHttpResponse Delivered()
+		{
+			var packages = this.Db.Packages
+				.Include(p => p.Recipient)
+				.Where(p => p.Status == Status.Delivered)
+				.Select(p => new StatusViewModel
+				{
+					Id = p.Id,
+                    Description = p.Description,
+                    Recipient = p.Recipient.Username,
+                    ShippingAddress = p.ShippingAddress,
+                    Weight = p.Weight
+				})
+				.ToList();
+
+			var model = new IndexPakagesViewModel { Packages = packages };
+
+			return this.View(model);
+		}
+
         [Authorize("Admin")]
         public IHttpResponse Ship(int id)
         {
