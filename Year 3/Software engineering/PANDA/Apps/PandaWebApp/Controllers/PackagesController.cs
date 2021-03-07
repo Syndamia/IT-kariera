@@ -66,7 +66,7 @@ namespace PandaWebApp.Controllers
         public IHttpResponse Create(CreatePackageViewModel model)
         {
             var recipient = this.Db.Users
-                .FirstOrDefault(x => x.Username == this.User.Username);
+                .FirstOrDefault(x => x.Username == model.Recipient);
 
             var package = new Package
             {
