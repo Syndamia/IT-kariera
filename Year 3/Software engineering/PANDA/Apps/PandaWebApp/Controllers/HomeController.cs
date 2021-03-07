@@ -53,5 +53,17 @@
 
             return this.View();
         }
+
+		public IHttpResponse Acquire(int id)
+		{
+			var package = this.Db.Packages
+                .FirstOrDefault(p => p.Id == id);
+
+            package.Status = Status.Acquired;
+
+            this.Db.SaveChanges();
+
+            return this.Redirect("/");
+		}
     }
 }
