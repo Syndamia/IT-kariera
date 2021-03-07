@@ -1,5 +1,6 @@
 ﻿namespace PandaWebApp.Controllers
 {
+    using PandaWebApp.Models;
     using PandaWebApp.Models.Enums;
     using PandaWebApp.ViewModels.Home;
     using SIS.HTTP.Responses;
@@ -54,6 +55,7 @@
             return this.View();
         }
 
+		[Authorize]
 		public IHttpResponse Acquire(int id)
 		{
 			var package = this.Db.Packages
@@ -61,9 +63,21 @@
 
             package.Status = Status.Acquired;
 
+			var user = this.Db.Users
+				.FirstOrDefault(p => p.Username == this.User.Username);
+
+			var receipt = new Receipt
+			{
+				Fee = package.Weight * 2.67M,
+				Recipient = user,
+				Package = package
+			};
+
+			this.Db.Receipts.Add(receipt);
+
             this.Db.SaveChanges();
 
-            return this.Redirect("/");
+            return this.Redirect("/receipts/index");
 		}
     }
 }
