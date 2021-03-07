@@ -2,4 +2,6 @@ Quirks with it:
 - MSSQL is Windows Only, so I changed the db to PostgreSQL
 - Localhost port 80 is reserved (or smth), so I changed the port to 8080 (in Apps/PandaWebApp/Startup.cs)
 - Links to pages are slightly broken (capital letters, the page is at "User/Login", but the link is at "user/login"), so I changed the links
-  + changed files: Home
+  + changed the file names to match the links
+  + I have a suspicion this has something to do with a setting or dotnet version
+

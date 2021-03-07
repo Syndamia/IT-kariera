@@ -28,7 +28,7 @@ namespace PandaWebApp.Controllers
                 .ToList();
 
             var model = new IndexViewModel { Receipts = userReceipts };
-            return this.View();
+            return this.View(model);
         }
 
         [Authorize]
