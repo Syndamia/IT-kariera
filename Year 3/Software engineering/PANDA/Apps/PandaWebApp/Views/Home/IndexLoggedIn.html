@@ -1,0 +1,54 @@
+﻿<main class="mt-3">
+    @if (User.Role == "Admin")
+    {
+        <h1 class="text-center">Hello, @User.Username!</h1>
+    }
+    @else
+    {
+        <h1 class="text-center">Hello, Administrator @User.Username!</h1>
+    }    
+    <hr class="hr-2 bg-panda">
+    <div class="row d-flex justify-content-around">
+        <div class="col-md-3">
+            <h2 class="text-center">Pending</h2>
+            <div class="container rounded border-panda px-0">
+                @for (var i = 0; i < @Model.PackageInfo.Pending.Count(); i++)
+                {
+                    { var package = @Model.PackageInfo.Pending.ToList()[i]; }
+                    <div class="button-holder my-4 d-flex justify-content-around">
+                        <h4 class="text-panda">@package.Description</h4>
+                        <a href="/packages/details?id=@package.Id" class="btn bg-panda text-white ml-5">Details</a>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col"></div>
+        <div class="col-md-3">
+            <h2 class="text-center">Shipped</h2>
+            <div class="container rounded border-panda px-0">
+                @for (var i = 0; i < @Model.PackageInfo.Shipped.Count(); i++)
+                {
+                    { var package = @Model.PackageInfo.Shipped.ToList()[i]; }
+                    <div class="button-holder my-4 d-flex justify-content-around">
+                        <h4 class="text-panda">@package.Description</h4>
+                        <a href="/packages/details?id=@package.Id" class="btn bg-panda text-white ml-5">Details</a>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col"></div>
+        <div class="col-md-3">
+            <h2 class="text-center">Delivered</h2>
+            <div class="container rounded border-panda px-0">
+                @for (var i = 0; i < @Model.PackageInfo.Delivered.Count(); i++)
+                {
+                    { var package = @Model.PackageInfo.Delivered.ToList()[i]; }
+                    <div class="button-holder my-4 d-flex justify-content-around">
+                        <h4 class="text-panda">@package.Description</h4>
+                        <a href="/packages/details?id=@package.Id" class="btn bg-panda text-white ml-5">Details</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</main>
