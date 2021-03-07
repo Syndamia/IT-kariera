@@ -17,7 +17,7 @@
                     { var package = @Model.PackageInfo.Pending.ToList()[i]; }
                     <div class="button-holder my-4 d-flex justify-content-around">
                         <h4 class="text-panda">@package.Description</h4>
-                        <a href="/packages/details?id=@package.Id" class="btn bg-panda text-white ml-5">Details</a>
+                        <a href="/Packages/Details?id=@package.Id" class="btn bg-panda text-white ml-5">Details</a>
                     </div>
                 }
             </div>
@@ -31,7 +31,7 @@
                     { var package = @Model.PackageInfo.Shipped.ToList()[i]; }
                     <div class="button-holder my-4 d-flex justify-content-around">
                         <h4 class="text-panda">@package.Description</h4>
-                        <a href="/packages/details?id=@package.Id" class="btn bg-panda text-white ml-5">Details</a>
+                        <a href="/Packages/Details?id=@package.Id" class="btn bg-panda text-white ml-5">Details</a>
                     </div>
                 }
             </div>
@@ -45,7 +45,7 @@
                     { var package = @Model.PackageInfo.Delivered.ToList()[i]; }
                     <div class="button-holder my-4 d-flex justify-content-around">
                         <h4 class="text-panda">@package.Description</h4>
-						<a href="/Home/acquire?id=@package.Id" class="btn bg-panda text-white ml-5">Acquire</a>
+						<a href="/Home/Acquire?id=@package.Id" class="btn bg-panda text-white ml-5">Acquire</a>
                     </div>
                 }
             </div>

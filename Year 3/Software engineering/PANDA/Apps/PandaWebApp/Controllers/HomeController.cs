@@ -77,7 +77,7 @@
 
             this.Db.SaveChanges();
 
-            return this.Redirect("/receipts/index");
+            return this.Redirect("/Receipts/Index");
 		}
     }
 }
