@@ -130,7 +130,7 @@ namespace PandaWebApp.Controllers
 		{
 			var packages = this.Db.Packages
 				.Include(p => p.Recipient)
-				.Where(p => p.Status == Status.Delivered)
+				.Where(p => p.Status == Status.Delivered || p.Status == Status.Acquired)
 				.Select(p => new StatusViewModel
 				{
 					Id = p.Id,
