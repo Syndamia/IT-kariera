@@ -38,17 +38,20 @@ namespace PandaWebApp.Controllers
             var user = this.Db.Users
                 .FirstOrDefault(x => x.Username == this.User.Username);
 
-            var receipt = user.Receipts
+            var receipt = this.Db.Receipts
                 .FirstOrDefault(r => r.Id == id);
+
+			var package = this.Db.Packages
+				.FirstOrDefault(p => p.Id == receipt.PackageId);
 
             var model = new ReceiptDetailsViewModel
             {
                 Id = receipt.Id,
-                DeliveryAddress = receipt.Package.ShippingAddress,
+                DeliveryAddress = package.ShippingAddress,
                 IssuedOn = receipt.IssuedOn.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture),
-                PackageDescription = receipt.Package.Description,
-                PackageWeight = receipt.Package.Weight,
-                Recipient = receipt.Recipient.Username,
+                PackageDescription = package.Description,
+                PackageWeight = package.Weight,
+                Recipient = user.Username,
                 Total = Math.Round(receipt.Fee, 2)
             };
 
