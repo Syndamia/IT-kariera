@@ -74,7 +74,7 @@ namespace PandaWebApp.Controllers
                 Weight = model.Weight,
                 ShippingAddress = model.ShippingAddress,
                 Recipient = recipient,
-                Status = Status.Pending
+                Status = Status.Pending,
             };
 
             this.Db.Packages.Add(package);
@@ -153,7 +153,7 @@ namespace PandaWebApp.Controllers
                 .FirstOrDefault(p => p.Id == id);
 
             package.Status = Status.Shipped;
-            package.EstimatedDeliveryDate.Value.AddDays(new Random().Next(20, 41));
+            package.EstimatedDeliveryDate = DateTime.Now.AddDays(new Random().Next(20, 41));
 
             this.Db.SaveChanges();
 
