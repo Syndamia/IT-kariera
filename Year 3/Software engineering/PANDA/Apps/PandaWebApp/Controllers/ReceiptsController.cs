@@ -17,7 +17,8 @@ namespace PandaWebApp.Controllers
             var user = this.Db.Users
                 .FirstOrDefault(x => x.Username == this.User.Username);
 
-            var userReceipts = user.Receipts
+			var userReceipts = this.Db.Receipts
+				.Where(x => x.Recipient.Username == this.User.Username)
                 .Select(x => new ReceiptViewModel
                 {
                     Id = x.Id,
