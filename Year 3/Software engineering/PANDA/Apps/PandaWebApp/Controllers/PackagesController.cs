@@ -166,7 +166,7 @@ namespace PandaWebApp.Controllers
             var package = this.Db.Packages
                 .FirstOrDefault(p => p.Id == id);
 
-            package.Status = Status.Acquired;
+            package.Status = Status.Delivered;
 
             this.Db.SaveChanges();
 
